@@ -14,4 +14,5 @@ RUN apk add --no-cache libcap tzdata \
     && apk del tzdata \
     && mkdir -p /usr/share/zoneinfo/Asia/ \
     && ln -s /etc/localtime /usr/share/zoneinfo/Asia/Shanghai \
-    && setcap 'cap_net_bind_service=+ep' /usr/bin/caddy
+    && setcap 'cap_net_bind_service=+ep' /usr/bin/caddy \
+    && apk del libcap
