@@ -1,11 +1,11 @@
 #https://hub.docker.com/_/caddy
-FROM caddy:2.0.0-builder AS builder
+FROM caddy:2-builder AS builder
 
 RUN caddy-builder \
     github.com/mholt/caddy-webdav \
     github.com/caddy-dns/cloudflare
 
-FROM caddy:2.0.0
+FROM caddy:2
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
