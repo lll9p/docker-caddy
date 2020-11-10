@@ -1,9 +1,8 @@
 #https://hub.docker.com/_/caddy
 FROM caddy:2-builder AS builder
 
-RUN caddy-builder \
-    github.com/mholt/caddy-webdav \
-    github.com/caddy-dns/cloudflare
+RUN xcaddy build \
+    --with github.com/mholt/caddy-webdav
 
 FROM caddy:2
 
